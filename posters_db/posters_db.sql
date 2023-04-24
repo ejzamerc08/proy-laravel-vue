@@ -1,10 +1,3 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Versión del servidor:         8.0.30 - MySQL Community Server - GPL
--- SO del servidor:              Win64
--- HeidiSQL Versión:             12.1.0.6537
--- --------------------------------------------------------
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!50503 SET NAMES utf8mb4 */;
@@ -14,12 +7,9 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
--- Volcando estructura de base de datos para posters_db
 CREATE DATABASE IF NOT EXISTS `posters_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `posters_db`;
 
--- Volcando estructura para tabla posters_db.categories
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'text',
@@ -29,15 +19,13 @@ CREATE TABLE IF NOT EXISTS `categories` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla posters_db.categories: ~0 rows (aproximadamente)
-REPLACE INTO `categories` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
+INSERT INTO `categories` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
 	(1, 'Dudas', 'Preguntas al tutor', '2023-04-21 21:41:23', '2023-04-21 21:41:23'),
 	(2, 'Juego', 'Para hablar sobre juegos', '2023-04-24 07:00:44', '2023-04-24 07:00:44'),
 	(3, 'Videos', 'Para hablar sobre videos', '2023-04-24 07:01:00', '2023-04-24 07:01:00'),
 	(4, 'Musica', 'Para hablar sobre musica', '2023-04-24 07:01:15', '2023-04-24 07:01:15'),
 	(5, 'Deportes', 'Para hablar sobre deportes', '2023-04-24 07:01:30', '2023-04-24 07:01:30');
 
--- Volcando estructura para tabla posters_db.failed_jobs
 CREATE TABLE IF NOT EXISTS `failed_jobs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -50,9 +38,7 @@ CREATE TABLE IF NOT EXISTS `failed_jobs` (
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla posters_db.failed_jobs: ~0 rows (aproximadamente)
 
--- Volcando estructura para tabla posters_db.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -60,8 +46,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla posters_db.migrations: ~0 rows (aproximadamente)
-REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
 	(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 	(3, '2019_08_19_000000_create_failed_jobs_table', 1),
@@ -70,7 +55,6 @@ REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(6, '2023_03_26_051358_create_permission_tables', 1),
 	(7, '2023_03_26_232731_create_posts_table', 1);
 
--- Volcando estructura para tabla posters_db.model_has_permissions
 CREATE TABLE IF NOT EXISTS `model_has_permissions` (
   `permission_id` bigint unsigned NOT NULL,
   `model_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -80,9 +64,7 @@ CREATE TABLE IF NOT EXISTS `model_has_permissions` (
   CONSTRAINT `model_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla posters_db.model_has_permissions: ~0 rows (aproximadamente)
 
--- Volcando estructura para tabla posters_db.model_has_roles
 CREATE TABLE IF NOT EXISTS `model_has_roles` (
   `role_id` bigint unsigned NOT NULL,
   `model_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -92,12 +74,10 @@ CREATE TABLE IF NOT EXISTS `model_has_roles` (
   CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla posters_db.model_has_roles: ~0 rows (aproximadamente)
-REPLACE INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
+INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 	(2, 'App\\Models\\User', 2),
 	(2, 'App\\Models\\User', 5);
 
--- Volcando estructura para tabla posters_db.password_reset_tokens
 CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -105,9 +85,7 @@ CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla posters_db.password_reset_tokens: ~0 rows (aproximadamente)
 
--- Volcando estructura para tabla posters_db.permissions
 CREATE TABLE IF NOT EXISTS `permissions` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -118,8 +96,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   UNIQUE KEY `permissions_name_guard_name_unique` (`name`,`guard_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla posters_db.permissions: ~0 rows (aproximadamente)
-REPLACE INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
+INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 	(1, 'ver-rol', 'web', '2023-04-21 21:35:36', '2023-04-21 21:35:36'),
 	(2, 'crear-rol', 'web', '2023-04-21 21:35:36', '2023-04-21 21:35:36'),
 	(3, 'editar-rol', 'web', '2023-04-21 21:35:36', '2023-04-21 21:35:36'),
@@ -133,7 +110,6 @@ REPLACE INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_a
 	(11, 'editar-post', 'web', '2023-04-21 21:35:36', '2023-04-21 21:35:36'),
 	(12, 'borrar-post', 'web', '2023-04-21 21:35:36', '2023-04-21 21:35:36');
 
--- Volcando estructura para tabla posters_db.personal_access_tokens
 CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -150,9 +126,7 @@ CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
   KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla posters_db.personal_access_tokens: ~0 rows (aproximadamente)
 
--- Volcando estructura para tabla posters_db.posts
 CREATE TABLE IF NOT EXISTS `posts` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'text',
@@ -166,11 +140,9 @@ CREATE TABLE IF NOT EXISTS `posts` (
   CONSTRAINT `posts_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla posters_db.posts: ~0 rows (aproximadamente)
-REPLACE INTO `posts` (`id`, `name`, `category_id`, `description`, `state`, `created_at`, `updated_at`) VALUES
+INSERT INTO `posts` (`id`, `name`, `category_id`, `description`, `state`, `created_at`, `updated_at`) VALUES
 	(1, 'Actividad Evaluativa 3', 1, 'preguntas sobre la actividad', 'no post', '2023-04-21 21:42:42', '2023-04-21 21:42:42');
 
--- Volcando estructura para tabla posters_db.roles
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -181,12 +153,10 @@ CREATE TABLE IF NOT EXISTS `roles` (
   UNIQUE KEY `roles_name_guard_name_unique` (`name`,`guard_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla posters_db.roles: ~2 rows (aproximadamente)
-REPLACE INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
+INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 	(1, 'Administrador', 'web', '2023-04-21 21:36:28', '2023-04-21 21:36:28'),
 	(2, 'Invitado', 'web', '2023-04-21 21:37:13', '2023-04-21 21:37:13');
 
--- Volcando estructura para tabla posters_db.role_has_permissions
 CREATE TABLE IF NOT EXISTS `role_has_permissions` (
   `permission_id` bigint unsigned NOT NULL,
   `role_id` bigint unsigned NOT NULL,
@@ -196,8 +166,7 @@ CREATE TABLE IF NOT EXISTS `role_has_permissions` (
   CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla posters_db.role_has_permissions: ~16 rows (aproximadamente)
-REPLACE INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
+INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(1, 1),
 	(2, 1),
 	(3, 1),
@@ -215,7 +184,6 @@ REPLACE INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(10, 2),
 	(11, 2);
 
--- Volcando estructura para tabla posters_db.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -229,8 +197,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla posters_db.users: ~3 rows (aproximadamente)
-REPLACE INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'Diego Armando Salazar Impatá', 'dimpata@hotmail.com', NULL, '$2y$10$lMkaFJIhGZ7jv2EBCn9S8.C8Owz2aQtzgA0ZCvDgKzs1tUhCNCYB.', NULL, '2023-04-21 21:35:59', '2023-04-21 21:35:59'),
 	(2, 'Maria Paula', 'mpaula@hotmail.com', NULL, '$2y$10$t0p7rgIoPH.2CzM.wNt4Mu3TvStBYyBkZHnvH0VfBf/h/ugkADbVq', NULL, '2023-04-21 21:37:37', '2023-04-21 21:37:37'),
 	(5, 'Erick Johan Zambrano Acosta', 'erickz16@hotmail.com', NULL, '$2y$10$z2nGpYTM.2N88R91mhNQY.jcwmQ6M7ZwjhuDQW8ktO1uI7XYp2zhq', NULL, '2023-04-24 08:08:38', '2023-04-24 08:08:38');
