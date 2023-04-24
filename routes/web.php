@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\UsuarioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +34,6 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 Route::resource('dashboard/post', PostController::class);
 Route::resource('dashboard/category', CategoryController::class);
+Route::resource('roles', RolController::class);
+Route::resource('usuarios', UsuarioController::class);
+

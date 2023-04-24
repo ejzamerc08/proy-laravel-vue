@@ -27,6 +27,13 @@
                 <li class="nav-item active">
                     <a href="{{ url('/dashboard/category') }}" class="nav-link">Categorias</a>
                 </li>
+                <li class="nav-item active">
+                    <a href="{{ url('roles') }}" class="nav-link">Roles</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="{{ url('usuarios') }}" class="nav-link">Usuarios</a>
+                </li>
+                
             </ul>
         </div>    
         </div>  

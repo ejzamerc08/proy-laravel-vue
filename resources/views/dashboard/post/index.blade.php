@@ -4,8 +4,12 @@
 
 <main>
     <div class="container py-4">
-        <h2>Post Publicados</h2>
+        @can('create-post')
         <a href="{{ url('dashboard/post/create') }}" class="btn btn-primary btn-sm">Nuevo Post</a>
+        @endcan
+
+        <h2>Post Publicados</h2>
+       
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
@@ -30,13 +34,19 @@
                         <td>{{ $post->state }}</td>
                         <td>{{ $post->created_at }}</td>
                         <td>{{ $post->updated_at }}</td>
-                        <td><a href="{{ url('dashboard/post/'.$post->id.'/edit') }}" class="bi bi-pencil"></a></td>
                         <td>
+                            @can('editar-post')
+                            <a href="{{ url('dashboard/post/'.$post->id.'/edit') }}" class="bi bi-pencil"></a>
+                            @endcan      
+                        </td>
+                        <td>
+                            @can('borrar-post')
                             <form action="{{ url('dashboard/post/'.$post->id )}}" method="post">
                                 @method("DELETE")
                                 @csrf
                                 <button class="bi bi-eraser-fill" type="submit"></button>
                             </form>
+                            @endcan    
                         </td>
                     </tr>
                     

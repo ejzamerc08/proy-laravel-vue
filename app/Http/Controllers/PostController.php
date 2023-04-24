@@ -8,9 +8,14 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    function __construct()
+    {
+        $this->middleware('permission:ver-post|crear-post|editar-post|borrar-post', ['only'=>['index']]);
+        $this->middleware('permission:crear-post', ['only'=>['create','store']]);
+        $this->middleware('permission:editar-post', ['only'=>['edit','update']]);
+        $this->middleware('permission:crear-post', ['only'=>['destroy']]);
+    }
+
     public function index()
     {
         $post = Post::all();
